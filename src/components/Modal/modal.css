@@ -1,0 +1,277 @@
+.container {
+  position: absolute;
+  box-sizing: border-box;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 10;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 35px;
+  width: 55vw;
+}
+.modalForm {
+  width: 100%;
+  height: 100%;
+}
+.formElements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modalInput {
+  width: 100%;
+}
+.modalInput > input, textarea {
+  padding: 12px 0 11px 13px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+.modalInput > input::placeholder, textarea::placeholder {
+  font-size: 14px;
+  font-family: 'Montserrat';
+  color: #cdcdcd
+}
+.legend {
+  font-weight: bold;
+  color: #222;
+  font-size: 20px;
+  margin-left: -10px;
+  margin-bottom: 49px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btnSubmit {
+  margin-right: 10px;
+}
+.button > button{
+  height: 38px;
+  width: 124px;
+  font-family: 'Arial';
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  cursor: pointer;
+  transform: translateY(1px);
+}
+.btnSubmit > button {
+  background-color: #8cd26e;
+}
+.btnCancel > button {
+  background-color: brown;
+}
+.icon {
+  height: 26px;
+  width: 26px;
+}
+.svgIcon {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.modalContainer {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, .7);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.modalContent {
+  background-color: white;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.big {
+  width: 65rem;
+  height: 35rem;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px #222 solid;
+  z-index: 10;
+}
+.medium {
+  width: 610px;
+  height: 408px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px #222 solid;
+}
+.small {
+  width: 420px;
+  height: 208px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px #222 solid;
+}
+.small > 
+.bigger {
+  width: 42rem;
+  height: 24rem;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px #222 solid;
+}
+.large {
+  width: 60vw;
+  height: 70vh;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px #222 solid;
+  overflow: scroll;
+}
+.modalTitle {
+  background-color:  rgba(254, 39, 83, 1);
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.titleBig {
+  color: #222;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 15px;
+}
+.titleSmall {
+  color: #222;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 15px;
+}
+.photoTitle {
+  text-align: center;
+  color: #222;
+  align-self: center;
+  margin-top: 2rem;
+}
+.photoTitle > span {
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+.modalBody {
+  flex: 0 1 70%;
+  align-self: center;
+  padding-top: 30px;
+  color: rgb(10, 49, 31);
+  font-weight: bolder;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+.modalButtons {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accessButtons, .greenButton {
+  align-self: center;
+}
+.modalButtons > button {
+  margin-right: 1rem;
+  background-color: rgba(254, 39, 83, 1);
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.accessButtons > button {
+  margin-right: 1rem;
+  background-color: rgba(140, 210, 110, 1);
+  color: white;
+  text-transform: uppercase;
+  padding: .7rem 1rem;
+  font-size: 1rem;
+  width: 10rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.accessButtons > button:last-of-type {
+  background-color: white;
+  border: 2px #222 solid;
+  color: #222;
+}
+.importPictures {
+  font-weight: 100;
+  padding: 2rem 4rem;
+  text-align: center;
+}
+.greenButton > button {
+  margin-right: 1rem;
+  background-color: rgba(140, 210, 110, 1);
+  color: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.errorText {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(254, 39, 83, 1);
+  display: flex;
+}
+.errorText > span {
+  padding-left: 20px;
+}
+.errorButton {
+  align-self: center;
+}
+.errorButton > button {
+  background-color: transparent;
+  border: solid #666 2px;
+  border-radius: 4px;
+  color: #666;
+  font-weight: 500;
+  padding: 10px 35px;
+  font-size: 1rem;
+}
+.titleError {
+  color: #666;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+  padding: 14px;
+  background-color: transparent;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
