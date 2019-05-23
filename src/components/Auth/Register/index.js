@@ -4,7 +4,9 @@ import { gql } from 'apollo-boost';
 import cn from 'classnames';
 import styles from '../auth.css'
 
-const Register = () => {
+const Register = ({
+  setNewUser,
+}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

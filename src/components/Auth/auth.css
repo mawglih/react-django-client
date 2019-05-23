@@ -21,10 +21,13 @@
 }
 .input>input {
   width: 100%;
+  display: block;
 }
 .input > label {
   font-size: 120%;
   padding-right: 20px;
+  display: block;
+  width: 20%;
 }
 .btn {
   display: block;

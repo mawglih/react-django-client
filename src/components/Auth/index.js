@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Register from './Register';
+import Login from './Login';
 
 const Auth = () => {
-  return (
-    <div>
-      <Register />
-    </div>
+  const [newUser, setNewUser] = useState(true);
+  return newUser ? (
+    <Register setNewUser={setNewUser} />
+  ) : (
+    <Login />
   )
 }
 
