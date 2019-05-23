@@ -6,10 +6,14 @@ import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from 'reducers';
 import rootSaga from 'sagas';
+import { ApolloProvider } from 'react-apollo';
+import ApolloClient from 'apollo-boost';
 
 import App from 'components/App';
 
-
+const client = new ApolloClient({
+  uri: 'http://localhost:8000/graphql/'
+})
 // const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,8 +30,10 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root'),
 );

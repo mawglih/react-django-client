@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.registerForm {
+  width: 60%;
+  margin: 50px 0;
+  border: solid 2px gray;
+  padding: 20px;
+  border-radius: 5px;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.input>input {
+  width: 100%;
+}
+.input > label {
+  font-size: 120%;
+  padding-right: 20px;
+}
+.btn {
+  display: block;
+  width: 100%;
+  color: white;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.btnSubmit {
+  background-color: orange;
+}
+.btnSecondary {
+  background-color: blue;
+}
+.formLabel {
+  color: darkorange;
+  text-align: center;
+}

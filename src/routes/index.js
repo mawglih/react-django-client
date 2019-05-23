@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from 'components/Home';
+import Auth from 'components/Auth';
 import Product from 'components/ProductDetail';
 import Products from 'components//Products';
 import {
-  HOME,
+  AUTH,
   PRODUCTS,
   PRODUCT_BY_ID,
 } from './constants';
@@ -23,8 +23,8 @@ export default () => (
     />
     <Route
       exact
-      path={HOME}
-      component={Home}
+      path={AUTH}
+      component={Auth}
     />
   </Switch>
 );
