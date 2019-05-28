@@ -130,13 +130,6 @@
   border-radius: 15px;
   border: 1px #222 solid;
 }
-.small {
-  width: 420px;
-  height: 208px;
-  background-color: white;
-  border-radius: 15px;
-  border: 1px #222 solid;
-}
 .small > 
 .bigger {
   width: 42rem;
@@ -154,12 +147,23 @@
   overflow: scroll;
 }
 .modalTitle {
-  background-color:  rgba(254, 39, 83, 1);
+  background-color: orange;
   color: white;
   font-weight: bold;
-  padding: 10px;
+  padding: 20px;
+  margin: 0 auto;
   width: 100%;
+  border-radius: 15px;
   box-sizing: border-box;
+  text-align: center;
+  font-size: 150%;
+}
+.small {
+  width: 420px;
+  height: 208px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px #222 solid;
 }
 .titleBig {
   color: #222;

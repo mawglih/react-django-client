@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Mutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import cn from 'classnames';
-import styles from '../auth.css'
+import Modal from 'components/Modal';
+import styles from '../auth.css';
 
 const Register = ({
   setNewUser,
 }) => {
+  let user = '';
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [open,setOpen] = useState(false);
+  // const [close, setClose] = useState(false);
+  // const handleDismiss = () => {
+  //   setClose(true);
+  // }
   const handleSubmit = async (e, createUser) => {
     e.preventDefault();
     const res = await createUser();
     console.log({res});
+    setOpen(true);
+    user = await res.data.createUser.user.username;
+    console.log(user);
   }
+  const actionButtons = (
+    <Fragment>
+      <button
+        onClick={() => setNewUser(false)}
+      >To Login</button>
+    </Fragment>
+  )
+
   return (
     <div className={styles.container}>
       <Mutation
@@ -39,12 +57,15 @@ const Register = ({
                 <label htmlFor="password">Password*</label>
                 <input id="password" type="password" onChange={e => setPassword(e.target.value)} />
               </div>
-              <button type="submit" className={cn(
+              <button
+                type="submit"
+                className={cn(
                   styles.btn,
                   styles.btnSubmit,
                 )}
+                disabled={loading || !username.trim() || !email.trim() || !password.trim()}
               >
-                Submit
+                {loading ? "Registering..." : "Register"}
               </button>
               <button type="button" className={cn(
                 styles.btn,
@@ -57,6 +78,14 @@ const Register = ({
           )
         }}
       </Mutation>
+      <Modal
+        open={open}
+        text={`New user: ${user}`}
+        size="small"
+        title="User created successfully"
+        actionButtons={actionButtons}
+        // modalDismiss={close}
+      />
     </div>
   )
 }

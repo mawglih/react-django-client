@@ -5,46 +5,84 @@ import styles from './modal.css';
 
 const Modal = ({
   title,
+  titleClass,
   text,
   actionButtons,
-  titleClass,
   modalDismiss,
-  open,
   children,
-}) => {
-  createPortal (
+  open,
+  size,
+  textClass,
+  showCloseButton,
+  showTextIcon,
+  accessButtons,
+  greenButton,
+  errorButton,
+  success,
+}) => (
+  createPortal(
     <div
       className={cn(
         !open ? styles.hide : styles.modalContainer,
       )}
       onClick={modalDismiss}
+      onKeyDown={modalDismiss}
       role="presentation"
+
     >
       <div
         className={cn(
           styles.modalContent,
+          styles[size],
         )}
         onClick={e => e.stopPropagation()}
+        onKeyDown={e => e.stopPropagation()}
         role="presentation"
       >
         <div className={cn(
-          titleClass ? styles[titleClass] : styles.modalTitle
-        )}>
+          titleClass ? styles[titleClass] : styles.modalTitle,
+        )}
+        >
           <span>
             {title}
           </span>
         </div>
         <div className={styles.modalBody}>
-          <Fragment>{children}</Fragment>
-          <span>{text}</span>
+          <Fragment>
+            {children}
+          </Fragment>
+          <div
+            className={cn(
+              textClass ? styles[textClass] : null,
+            )}
+          >
+            {showTextIcon ? (
+              <div
+                className={cn(
+                  styles.svgTextIcon,
+                )}
+              >
+              </div>
+            ) : null}
+            <span>
+              {text}
+            </span>
+          </div>
         </div>
-        <div>
+        <div className={cn(
+          greenButton ? styles.greenButton : null,
+          accessButtons ? styles.accessButtons : styles.modalButtons,
+          errorButton ? styles.errorButton : null,
+        )}
+        >
           {actionButtons}
         </div>
+
       </div>
+
     </div>,
     document.getElementById('modal'),
   )
-};
+);
 
 export default Modal;
