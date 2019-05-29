@@ -19,14 +19,17 @@ const Modal = ({
   greenButton,
   errorButton,
   success,
-}) => (
+}) => {
+console.log("dismiss: ",modalDismiss);
+console.log("open: ",open);
+return(
   createPortal(
     <div
       className={cn(
         !open ? styles.hide : styles.modalContainer,
       )}
-      onClick={modalDismiss}
-      onKeyDown={modalDismiss}
+      onClick={() => modalDismiss}
+      onKeyDown={() => modalDismiss}
       role="presentation"
 
     >
@@ -84,5 +87,6 @@ const Modal = ({
     document.getElementById('modal'),
   )
 );
+        }
 
 export default Modal;

@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: blueviolet;
+  padding: 20px;
+  color: white;
+}
+a {
+  color: white;
+  text-decoration: none;
+}

@@ -7,12 +7,6 @@
   display: none;
   z-index: 10;
 }
-.show {
-  display: block;
-}
-.hide {
-  display: none;
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -278,4 +272,10 @@
   background-color: transparent;
   border-radius: 15px;
   text-transform: uppercase;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }

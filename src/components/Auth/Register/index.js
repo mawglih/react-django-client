@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import cn from 'classnames';
 import Modal from 'components/Modal';
+// import Error from 'components/Error';
 import styles from '../auth.css';
 
 const Register = ({
@@ -13,23 +14,33 @@ const Register = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open,setOpen] = useState(false);
-  // const [close, setClose] = useState(false);
-  // const handleDismiss = () => {
-  //   setClose(true);
-  // }
-  const handleSubmit = async (e, createUser) => {
+  const [close, setClose] = useState(false);
+
+  const handleSubmit = (e, createUser) => {
     e.preventDefault();
-    const res = await createUser();
-    console.log({res});
-    setOpen(true);
-    user = await res.data.createUser.user.username;
-    console.log(user);
+    createUser();
   }
+  const errorButton = (
+    <Fragment>
+      <button
+        onClick={() => setClose(true)}
+      >
+        Close
+      </button>
+    </Fragment>
+  )
   const actionButtons = (
     <Fragment>
       <button
+        onClick={() => setClose(true)}
+      >
+        Cancel
+      </button>
+      <button
         onClick={() => setNewUser(false)}
-      >To Login</button>
+      >
+        To Login
+      </button>
     </Fragment>
   )
 
@@ -38,6 +49,12 @@ const Register = ({
       <Mutation
         mutation={REGISTER_MUTATION}
         variables={{ username, email, password }}
+        onCompleted={data => {
+          console.log(data);
+          user = data.createUser.user.username;
+          console.log(user);
+          setOpen(true);
+        }}
       >
         {(createUser, { loading, error }) => {
 
@@ -66,14 +83,26 @@ const Register = ({
                 disabled={loading || !username.trim() || !email.trim() || !password.trim()}
               >
                 {loading ? "Registering..." : "Register"}
+                {}
               </button>
-              <button type="button" className={cn(
-                styles.btn,
-                styles.btnSecondary,
-              )}
+              <button 
+                type="button"
+                className={cn(
+                  styles.btn,
+                  styles.btnSecondary,
+                )}
+                onClick={() => setNewUser(false)}
               >
                 Previous user? Login here
               </button>
+              <Modal 
+                title="Error occurred"
+                error={error}
+                text={`New error: ${error}`}
+                open={error}
+                actionButtons={errorButton}
+                modalDismiss={close}
+              />
             </form>
           )
         }}
@@ -84,7 +113,7 @@ const Register = ({
         size="small"
         title="User created successfully"
         actionButtons={actionButtons}
-        // modalDismiss={close}
+        modalDismiss={close}
       />
     </div>
   )
